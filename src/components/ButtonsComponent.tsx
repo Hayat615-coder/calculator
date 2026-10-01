@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { themeStyles, useTheme } from "../ThemeContext";
+import DisplayComponent from "./DisplayComponent";
+
 const ButtonsComponent = () => {
   const [display, setDisplay] = useState<string>("");
+  const { theme } = useTheme();
+  const styles = themeStyles[theme];
   const BtnArray = [
     7,
     8,
@@ -42,43 +47,40 @@ const ButtonsComponent = () => {
     }
   };
   return (
-    <>
-      <div className="flex flex-col gap-4 ">
-        <div className="bg-[hsl(223,31%,20%)] rounded-lg">
-          <h1 className="text-3xl text-right p-4 text-white">
-            {display || "0"}
-          </h1>
-        </div>
-        <div className="bg-[hsl(223,31%,20%)] grid gap-6 p-6 grid-cols-4 rounded-lg">
-          {BtnArray.map((item) => (
-            <button
-              key={item}
-              onClick={() => handlePress(item)}
-              className={`p-3 rounded-lg text-xl font-bold transition-opacity hover:opacity-90 ${
-                item === "DEL"
-                  ? "bg-[hsl(176,100%,44%)] text-white"
-                  : "bg-white text-[hsl(223,31%,20%)]"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
+    <div className="flex flex-col gap-4">
+      <DisplayComponent value={display} />
+      <div className={`${styles.panel} grid grid-cols-4 gap-6 rounded-lg p-6`}>
+        {BtnArray.map((item) => (
+          <button
+            key={item}
+            type="button"
+            onClick={() => handlePress(item)}
+            className={`rounded-lg p-3 text-xl cursor-pointer font-bold transition hover:brightness-110 ${
+              item === "DEL"
+                ? `${styles.accent.bg} ${styles.accent.text} ${styles.accent.shadow ?? ""}`
+                : `${styles.key.bg} ${styles.key.text} ${styles.key.shadow ?? ""}`
+            }`}
+          >
+            {item}
+          </button>
+        ))}
 
-          <button
-            onClick={resetPress}
-            className="col-span-2 bg-[hsl(176,100%,44%)] text-white rounded-lg p-2"
-          >
-            RESET
-          </button>
-          <button
-            onClick={handleCalculate}
-            className="col-span-2 bg-[hsl(25,98%,40%)] text-white text-2xl p-2 rounded-lg"
-          >
-            =
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={resetPress}
+          className={`col-span-2 rounded-lg p-2 ${styles.accent.bg} ${styles.accent.text}`}
+        >
+          RESET
+        </button>
+        <button
+          type="button"
+          onClick={handleCalculate}
+          className={`col-span-2 rounded-lg p-2 text-2xl ${styles.equals.bg} ${styles.equals.text}`}
+        >
+          =
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
