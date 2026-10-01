@@ -1,75 +1,27 @@
-# React + TypeScript + Vite
+# 🧮 Multi-Theme Calculator App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, accessible, and feature-complete calculator web application built as part of the **Frontend Mentor** challenge. Features a custom **3-state theme switcher** powered by React Context, custom CSS grid layouts, and full **physical keyboard support**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Features
 
-## React Compiler
+- 🎨 **3 Dynamic Color Themes:**
+  - **Theme 1:** Classic Slate/Dark Blue
+  - **Theme 2:** Crisp Light Gray
+  - **Theme 3:** High-Contrast Neon/Purple
+- ⌨️ **Physical Keyboard Controls:** Full typing support using digits, mathematical operators, `Backspace`, `Enter`, and `Escape`.
+- 📱 **Fully Responsive Layout:** Optimized using CSS Grid and Tailwind CSS for mobile, tablet, and desktop viewports.
+- 🔐 **Safe Calculation Engine:** Sanitized expression evaluation preventing crash cases, division by zero, or invalid syntax.
+- ⚡ **Type-Safe State Management:** Managed via TypeScript and React's `useContext` / `createContext` API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend Library:** [React](https://react.dev/)
+- **Type System:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+---
