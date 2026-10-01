@@ -4,6 +4,14 @@ A responsive, accessible, and feature-complete calculator web application built 
 
 ---
 
+## 📸 Live Preview
+
+<div align="center">
+  <img src="./src/assets/active-states-theme-1.jpg" alt="Theme 1" width="30%" />
+  <img src="./src/assets/active-states-theme-2.jpg" alt="Theme 2" width="30%" />
+  <img src="./src/assets/active-states-theme-3.jpg" alt="Theme 3" width="30%" />
+</div>
+---
 ## 🌟 Features
 
 - 🎨 **3 Dynamic Color Themes:**
